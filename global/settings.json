@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Read",
+      "Grep",
+      "Glob",
+      "Bash(gh:*)",
+      "Bash(git:*)",
+      "Bash(npm run:*)"
+    ]
+  },
+  "model": "sonnet"
+}

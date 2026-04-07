@@ -1,0 +1,24 @@
+# Claude Code — gitignore template
+#
+# Copy these lines into your project's .gitignore
+# to properly separate shared config from personal config.
+#
+# ── COMMIT these (shared with team) ──
+# .claude/settings.json       → hooks, MCP servers, permissions
+# .claude/commands/            → slash commands
+# .claude/skills/              → project skills
+# .claude/agents/              → custom agents
+# .claude/rules/               → team standards
+# CLAUDE.md                    → project configuration
+#
+# ── IGNORE these (personal) ──
+
+# Personal overrides (API keys, model preferences, local MCP servers)
+.claude/settings.local.json
+
+# Claude's auto-generated memory from your sessions
+.claude/auto-memory/
+
+# Claude session data
+.claude/todos.md
+.claude/analytics/
