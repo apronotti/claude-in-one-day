@@ -1,4 +1,4 @@
-# [Claude in One Day](https://github.com/apronotti/claude-in-one-day/edit/main/README.md#:~:text=Claude_in_One_Day_book) — Companion Repository
+# [Claude in One Day](https://github.com/apronotti/claude-in-one-day/blob/main/Claude_in_One_Day_book.pdf) — Companion Repository
 
 > Every template, configuration file, and skill from the book **"Claude in One Day: A Software Engineer's Field Guide"** by Alejandro Pronotti.
 
