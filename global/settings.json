@@ -6,7 +6,9 @@
       "Glob",
       "Bash(gh:*)",
       "Bash(git:*)",
-      "Bash(npm run:*)"
+      "Bash(pytest:*)",
+      "Bash(ruff:*)",
+      "Bash(python:*)"
     ]
   },
   "model": "sonnet"

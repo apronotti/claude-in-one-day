@@ -9,11 +9,11 @@
 - Use `gh` CLI for all GitHub operations.
 
 ## Code Style (all projects)
-- Prefer functional patterns over OOP when possible
-- Never use `any` in TypeScript — use `unknown`
-- Always handle errors explicitly, never swallow them
+- Add type hints to all public functions and methods
+- Never use `from module import *`
+- Always handle exceptions explicitly, never bare `except: pass`
 - Write tests alongside implementation, not after
-- Prefer named exports over default exports
+- Prefer composition over deep inheritance hierarchies
 - Keep functions under 30 lines; extract when longer
 
 ## Git Conventions

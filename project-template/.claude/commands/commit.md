@@ -1,14 +1,14 @@
 Before committing, follow this workflow:
 
-1. Run tests: `npm run test`
+1. Run tests: `pytest`
    - If any fail, fix them before proceeding
    - Do NOT commit with failing tests
 
-2. Run lint: `npm run lint`
+2. Run lint: `ruff check .`
    - Fix any lint errors before proceeding
 
 3. Review staged changes: `git diff --staged`
-   - Verify no debug artifacts (console.log, TODO comments)
+   - Verify no debug artifacts (print(), TODO comments)
    - Verify no secrets or credentials
    - Verify no unrelated changes mixed in
 

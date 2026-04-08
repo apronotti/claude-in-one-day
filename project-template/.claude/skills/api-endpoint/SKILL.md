@@ -9,27 +9,27 @@ description: >
 
 When creating a new endpoint, always follow this sequence:
 
-1. **Route handler** in `src/routes/`
-   - Define the HTTP method and path
-   - Add zod schema for request validation
+1. **Route handler** in `app/routes/`
+   - Define the FastAPI path operation
+   - Add Pydantic model for request validation
    - Call the service method
-   - Return using `ApiResponse<T>` wrapper
+   - Return using `ApiResponse[T]` wrapper
 
-2. **Service method** in `src/services/`
+2. **Service method** in `app/services/`
    - Implement business logic here
-   - No HTTP dependencies (no req/res objects)
-   - Return `Result<T, AppError>`, never throw
+   - No HTTP dependencies (no Request/Response objects)
+   - Return `Result[T, AppError]`, never raise
    - Handle all error cases explicitly
 
-3. **Repository method** in `src/repos/` (if DB access needed)
-   - Use Prisma client for all queries
+3. **Repository method** in `app/repos/` (if DB access needed)
+   - Use SQLAlchemy session for all queries
    - Return typed data, not raw query results
    - Handle database errors and wrap in AppError
 
-4. **Validation schema** using zod
-   - Define request body, params, and query schemas
-   - Place alongside the route handler
-   - Include meaningful error messages
+4. **Pydantic models** for validation
+   - Define request/response models in `app/schemas/`
+   - Include field descriptions and examples
+   - Add custom validators where needed
 
 5. **Tests** in `tests/`
    - Happy path test
@@ -37,20 +37,24 @@ When creating a new endpoint, always follow this sequence:
    - Business logic error test (e.g., not found)
    - Auth/permission test if applicable
 
-6. **Register route** in `src/routes/index.ts`
+6. **Register route** in `app/routes/__init__.py`
 
 ## Error Handling Pattern
 
-```typescript
-// Service returns Result, never throws
-type Result<T, E> = { ok: true; data: T } | { ok: false; error: E };
+```python
+# Service returns Result, never raises
+@dataclass
+class Result(Generic[T, E]):
+    ok: bool
+    data: T | None = None
+    error: E | None = None
 
-// Route converts to HTTP
-const result = await userService.create(data);
-if (!result.ok) {
-  return res.status(result.error.status).json(
-    ApiResponse.error(result.error.message)
-  );
-}
-return res.status(201).json(ApiResponse.success(result.data));
+# Route converts to HTTP
+result = await user_service.create(data)
+if not result.ok:
+    raise HTTPException(
+        status_code=result.error.status,
+        detail=result.error.message
+    )
+return ApiResponse(ok=True, data=result.data)
 ```

@@ -4,7 +4,7 @@
 - Every new feature must include tests
 - Every bug fix must include a regression test
 - Every public function in services/ and repos/ must have at least one test
-- Test files mirror source structure: `src/services/user.ts` → `tests/services/user.test.ts`
+- Test files mirror source structure: `app/services/user.py` → `tests/services/test_user.py`
 
 ## Test Quality
 - Test behavior, not implementation details
@@ -13,17 +13,18 @@
 - Tests must be deterministic — no reliance on time, randomness, or network
 
 ## Naming Convention
-- Describe blocks: module or class name
-- It blocks: "should [expected behavior] when [condition]"
-- Example: `it('should return 404 when user does not exist')`
+- Test files: `test_[module].py`
+- Test classes: `TestClassName`
+- Test methods: `test_should_[expected]_when_[condition]`
+- Example: `test_should_return_404_when_user_does_not_exist`
 
 ## Mocking Rules
 - Mock external dependencies (databases, APIs, file system)
 - Never mock the system under test
-- Use dependency injection to make mocking clean
-- Reset all mocks in `beforeEach`
+- Use `pytest.fixture` for dependency injection
+- Use `unittest.mock.patch` or `pytest-mock` for mocking
 
 ## Test Data
-- Use factory functions, not inline object literals
+- Use factory functions, not inline dict literals
 - Use realistic data, not "test" or "foo"
 - Keep test data close to the test that uses it

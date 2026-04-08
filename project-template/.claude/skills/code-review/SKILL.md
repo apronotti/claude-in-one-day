@@ -17,9 +17,9 @@ For each changed file, verify against this checklist:
 
 ## Error Handling
 - [ ] All async operations have error handling
-- [ ] Services return `Result<T, AppError>`, never throw
-- [ ] Error messages are user-friendly (no stack traces in API responses)
-- [ ] Edge cases handled (null, empty, not found)
+- [ ] Services return `Result[T, AppError]`, never raise
+- [ ] Error messages are user-friendly (no tracebacks in API responses)
+- [ ] Edge cases handled (None, empty, not found)
 
 ## Security
 - [ ] No SQL injection (parameterized queries only)
@@ -35,9 +35,9 @@ For each changed file, verify against this checklist:
 - [ ] Tests are independent (no shared mutable state)
 
 ## Code Quality
-- [ ] No `console.log` or debug artifacts
-- [ ] No `any` types (use `unknown` instead)
-- [ ] No commented-out code
+- [ ] No `print()` or debug artifacts
+- [ ] Type hints on all public functions
+- [ ] No bare `except:` or `except Exception: pass`
 - [ ] Function names describe what they do
 - [ ] No functions longer than 30 lines
 

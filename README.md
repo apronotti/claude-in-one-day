@@ -113,9 +113,9 @@ Every file in this repo is a **starting point, not a final product**. The most i
 
 ## The Book
 
-📖 **[Claude in One Day](https://www.amazon.com/dp/PLACEHOLDER)** — Available on Amazon Kindle
+📖 **Claude in One Day** — A Software Engineer's Field Guide to CLAUDE.md, Skills, MCP, and Agentic Workflows
 
-The book walks through the complete setup process in 10 chapters, from mental model to production-ready configuration. These templates are the practical companion — the book explains the *why* behind every file.
+The book walks through the complete setup process in 10 chapters, from mental model to production-ready configuration. These templates are the practical companion — the book explains the *why* behind every file. Contact the author for access.
 
 ## License
 

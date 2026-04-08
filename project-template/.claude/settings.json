@@ -6,8 +6,11 @@
       "Edit",
       "Grep",
       "Glob",
-      "Bash(npm run:*)",
-      "Bash(npx:*)",
+      "Bash(pytest:*)",
+      "Bash(ruff:*)",
+      "Bash(python:*)",
+      "Bash(uvicorn:*)",
+      "Bash(alembic:*)",
       "Bash(git:*)",
       "Bash(gh:*)"
     ]
@@ -31,7 +34,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "npx prettier --write $FILE 2>/dev/null || true",
+            "command": "ruff format $FILE 2>/dev/null || true",
             "timeout": 10
           }
         ]
